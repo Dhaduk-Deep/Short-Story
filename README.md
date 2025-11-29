@@ -1,117 +1,69 @@
-# CMPE 255 Short Story — Dimensionality Reduction for Data Mining
+# Comparative Study of Modern Dimensionality Reduction Techniques
 
-*A survey-style “short story” aligned with CMPE 255 (Data Mining). Focus on gist over math, with clear visuals and practical takeaways.*
+This repository contains my CMPE 255 (Data Mining) **short story / survey project** on modern dimensionality reduction methods, based on the 2025 survey paper:
 
-**Primary source used:**  
-**"A Survey: Potential Dimensionality Reduction Methods For Data Reduction."**  
-*Foo Hui Mean, Yuan-chin Ivan Chang.* arXiv:2502.11036v2, 18–19 Feb 2025. (PDF in this repo’s `Research_paper.pdf`.)
+> **A Survey: Potential Dimensionality Reduction Methods for Data Reduction**  
+> Arxiv: [https://arxiv.org/abs/2502.11036](https://arxiv.org/abs/2502.11036)
 
----
-
-## 🔗 Submission Links (fill these in before turning in)
-
-- **Public GitHub repo (this repo):** <ADD URL>
-- **Approved-topics spreadsheet row/link:** <ADD URL>
-- **Medium article (published):** <ADD URL>
-- **Slides (SlideShare, public):** <ADD URL>
-- **Recording (10–15 min, public):** <ADD URL>
-
-> Per the assignment: paste the Medium and SlideShare links into the class spreadsheet as well.
+The project focuses on data mining–relevant dimensionality reduction techniques such as **PCA, Kernel PCA, Sparse Kernel PCA, t-SNE, and UMAP**, and presents them in a **story-style Medium article**, a **slide deck**, and an **accompanying video presentation**.
 
 ---
 
-## 🧾 Repository Contents
+## 📌 Quick Links
 
-| File | Description |
-|------|--------------|
-| `README.md` | Overview of the project and paper summary |
-| `slides.pdf` | Presentation slides summarizing the research |
-| `medium_article_link.txt` | Link to the Medium article |
-| `video_presentation.mp4` | Recorded 10–15 minute explanation video |
-| `references.txt` | Paper citation and supporting materials |
+- 📝 **Medium Article**  
+  *A Friendly Tour of Dimensionality Reduction*  
+  [https://medium.com/@deepbharatbhai.dhaduk/a-friendly-tour-of-dimensionality-reduction-d1f2a98a8727?postPublishedType=initial](https://medium.com/@deepbharatbhai.dhaduk/a-friendly-tour-of-dimensionality-reduction-d1f2a98a8727?postPublishedType=initial)
 
-> Keep filenames exactly as above for easy grading.
+- 📊 **Slideshare Presentation**  
+  *Comparative Study of Modern Dimensionality Reduction Techniques*  
+  [https://www.slideshare.net/slideshow/comparative-study-of-modern-dimensionality-reduction-techniques/284375883](https://www.slideshare.net/slideshow/comparative-study-of-modern-dimensionality-reduction-techniques/284375883)
 
----
+- 📄 **Base Research Paper (Survey)**  
+  *A Survey: Potential Dimensionality Reduction Methods for Data Reduction*  
+  [https://arxiv.org/abs/2502.11036](https://arxiv.org/abs/2502.11036)
 
-## 🧠 Project Overview (gist over math)
-
-This short story distills **five core dimensionality reduction methods** through a **data mining** lens—emphasizing *when to use what*, architecture-level intuition, ablation-style comparisons, and lightweight metrics:
-
-- **PCA** — Linear, fast, interpretable; preserves **global variance**; strong first-pass for preprocessing, denoising, visualization.
-- **Kernel PCA (KPCA)** — Captures **nonlinear** structure via kernels; powerful but memory/compute intensive for large *n* (Gram matrix + eigendecomposition).
-- **Sparse KPCA** — Approximates KPCA using a **subset**/sparsity idea to scale better; trades exactness for efficiency.
-- **t-SNE** — Excellent **local neighborhood** visualization; separates clusters well in 2D/3D; weaker global distances; sensitive to *perplexity*; higher compute.
-- **UMAP** — Faster than t-SNE with a better **local/global balance**; sensitive to `n_neighbors` / `min_dist`; good default for large datasets.
-
-### Quick comparison (rule-of-thumb)
-
-| Method | Preserves | Typical Use | Notes |
-|---|---|---|---|
-| PCA | Global variance | Preprocessing; linear patterns | ~O(n d^2); very fast; interpretable components |
-| KPCA | Nonlinear structure | Complex manifolds (small/med n) | ~O(n^3)/O(n^2) mem (Gram + eigendecomp) |
-| Sparse KPCA | Nonlinear (approx) | Larger n than KPCA | Approximate; faster; accuracy trade-off |
-| t-SNE | Local neighborhoods | 2D/3D viz & cluster separation | O(n^2) (Barnes–Hut ~O(n log n)); poor global geometry |
-| UMAP | Local + some global | Large-n visualization/exploration | ~O(n log n); hyperparameter sensitive |
-
-**Lightweight metrics to mention:** reconstruction error (PCA), trustworthiness/continuity (embedding quality), k-NN preservation, silhouette if you overlay clusters.
+- 🎥 **Presentation Video (10–15 minutes)**  
+  *(Replace this with your actual video link once uploaded)*  
+  `https://your-video-link-here`
 
 ---
 
-## 📰 Medium Article (what to cover)
+## 📚 Project Overview
 
-**Suggested title:** *"Dimensionality Reduction for Data Mining: When to Use PCA, KPCA, Sparse KPCA, t-SNE, or UMAP."*
+High-dimensional datasets are increasingly common in modern machine learning and data mining (images, text embeddings, sensor data, logs, etc.). However, high dimensionality comes with challenges:
 
-**Angle:** architecture & behavior over proofs. Include:
-- PCA vs. KPCA (linear vs. kernel; inverse mapping considerations).
-- Sparse KPCA’s subset/sparsity idea and trade-offs.
-- t-SNE vs. UMAP: local vs. global preservation; typical pitfalls; runtime.
-- Ablations: t-SNE perplexity sweeps; UMAP `n_neighbors` / `min_dist`; kernel choices for KPCA.
-- Practical tips: scaling/normalization, outliers, random seeds, reproducibility.
+- High computational cost  
+- Curse of dimensionality  
+- Difficulty in visualization and interpretation  
 
-> **Academic integrity:** Write the Medium post **from scratch** (no copying existing posts; no AI-generated text). Use your own figures or properly attributed assets.
+This project surveys and compares several **dimensionality reduction methods** that help reduce dimensionality while preserving important structure in the data.
 
----
+Methods covered:
 
-## 📊 Slides (slides.pdf)
+- **PCA (Principal Component Analysis)** – Linear, fast, and widely used; great for global variance and preprocessing.  
+- **Kernel PCA (KPCA)** – Uses kernel functions to capture nonlinear structure in a higher-dimensional feature space.  
+- **Sparse Kernel PCA** – Approximate and more scalable version of KPCA using a subset of representative samples.  
+- **t-SNE (t-Distributed Stochastic Neighbor Embedding)** – Designed for visualization; preserves local neighborhoods and reveals cluster structure in 2D.  
+- **UMAP (Uniform Manifold Approximation and Projection)** – Manifold-based method that is fast, scalable, and preserves local structure with some global structure.
 
-**Suggested flow (10–12 slides):**
-1. Why dimensionality reduction matters for **data mining** (clustering, viz, retrieval, anomaly detection).
-2. PCA in one diagram (pros/cons; when it fails).
-3. KPCA intuition (kernel trick) + cost caveat.
-4. Sparse KPCA (subset idea) + approximation trade-offs.
-5. t-SNE visuals + pitfalls (global distortion, compute).
-6. UMAP visuals + hyperparameter sensitivity.
-7. Comparison table (goal, structure preserved, complexity, scalability).
-8. Practical guidance (dataset size, objectives, time budget).
-9. Takeaways + references.
+The emphasis is on:
 
-Export to **PDF** as `slides.pdf`, upload to SlideShare, and place the public link above and in the class spreadsheet.
+- **Intuition and architecture** of each method  
+- **Trade-offs**: scalability, linear vs nonlinear, local vs global structure  
+- **Use cases** in data mining pipelines (visualization, preprocessing, clustering, etc.)
 
 ---
 
-## 🎥 Recording (10–15 min)
+## 🧾 Repository Structure
 
-- Present with the slides on screen and narrate *when/why* you’d pick each method.
-- Show your figures/ablations; keep it practical and visual.
-- Export the final recording as `video_presentation.mp4` (or link publicly if file size is large).
+Adjust file names as needed to match your repo.
 
----
-
-## ✅ Rubric Mapping
-
-- **Data mining relevance:** dimensionality reduction supports clustering/viz/preprocessing at scale.
-- **Recent & strong sources:** based on a 2025 survey; you may add 2024–2025 surveys or accepted ICML/NeurIPS/ICLR/KDD papers.
-- **Original Medium post:** paraphrased/rewritten from scratch with your commentary and figures.
-- **Slides + Recording:** clear, visual summary with public links.
-- **Public GitHub + Spreadsheet:** repo is public; Medium/SlideShare links pasted in the class spreadsheet.
-- **Clear README:** this file documents everything and links all artifacts.
-
----
-
-## 📚 References (place full entries in `references.txt`)
-
-Example entries you can paste into `references.txt`:
-
-Foo Hui Mean, Yuan-chin Ivan Chang. "A Survey: Potential Dimensionality Reduction Methods For Data Reduction." arXiv:2502.11036v2, Feb 2025. 
-Additional 2024–2025 survey or accepted conference papers (ICML/NeurIPS/ICLR/KDD): <Title> — <Authors>, <Venue>, <Year>. URL: <link>
+```text
+.
+├── README.md                               # This file
+├── Dimensionality_Reduction.pptx          # Slide deck used in the video (PowerPoint)
+├── video/                                 # Folder for recorded presentation video
+│   └── Dimensionality_Reduction.mp4  # 10–15 minute presentation video (optional if hosted online)
+└── Research_paper.odf
+   
