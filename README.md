@@ -23,12 +23,6 @@ The project focuses on data mining–relevant dimensionality reduction technique
   *A Survey: Potential Dimensionality Reduction Methods for Data Reduction*  
   [https://arxiv.org/abs/2502.11036](https://arxiv.org/abs/2502.11036)
 
-- 🎥 **Presentation Video (10–15 minutes)**  
-  *(Replace this with your actual video link once uploaded)*  
-  `https://your-video-link-here`
-
----
-
 ## 📚 Project Overview
 
 High-dimensional datasets are increasingly common in modern machine learning and data mining (images, text embeddings, sensor data, logs, etc.). However, high dimensionality comes with challenges:
